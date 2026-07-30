@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram API Bypass Configurator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- FontAwesome Kit -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        @import url('https://googleapis.com');
+        body { font-family: 'Inter', sans-serif; }
+        code, pre { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-[#f8fafc] min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-2xl w-full bg-[#1e293b] rounded-2xl shadow-2xl border border-[#334155] p-6 md:p-8">
+        
+        <!-- Header -->
+        <div class="flex items-center space-x-4 border-b border-[#334155] pb-6 mb-6">
+            <div class="bg-[#0284c7] p-3.5 rounded-xl shadow-lg shadow-sky-500/20">
+                <i class="fa-solid fa-terminal text-2xl text-white"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight md:text-2xl text-white">Telegram Website Unblocker</h1>
+                <p class="text-sm text-[#94a3b8] mt-1">Bypass provider blocks to access my.telegram.org natively</p>
+            </div>
+        </div>
+
+        <!-- System Requirements Info -->
+        <div class="bg-[#0284c7]/10 border border-[#0284c7]/30 rounded-xl p-4 mb-6 flex items-start space-x-3">
+            <span class="text-[#38bdf8] mt-0.5"><i class="fa-solid fa-circle-info"></i></span>
+            <p class="text-sm text-[#38bdf8] leading-relaxed">
+                This automated script flushes old network configs and patches direct host resolution rules. It finishes silently with no output if it executes successfully.
+            </p>
+        </div>
+
+        <!-- Instructions -->
+        <div class="space-y-4">
+            <h2 class="text-md font-semibold text-[#cbd5e1] flex items-center">
+                <span class="bg-[#334155] text-xs px-2 py-0.5 rounded mr-2 font-mono">Mac / Linux</span> Setup Command
+            </h2>
+            
+            <p class="text-sm text-[#94a3b8]">
+                Open your Terminal application, copy the script command string below, paste it directly into your window, and hit <kbd class="bg-[#334155] text-white px-1.5 py-0.5 rounded text-xs">Enter</kbd>:
+            </p>
+
+            <!-- Command Terminal Box -->
+            <div class="relative bg-[#090d16] border border-[#1e293b] rounded-xl p-4 flex items-center justify-between group overflow-x-auto">
+                <div class="flex items-center space-x-3 min-w-0 pr-24">
+                    <span class="text-[#64748b] select-none">$</span>
+                    <code id="cmd-text" class="text-[#38bdf8] text-sm whitespace-nowrap font-medium selection:bg-[#0284c7]/30">curl -sSL [PLACEHOLDER_FOR_RAW_URL] | sudo bash</code>
+                </div>
+                
+                <!-- Action Button -->
+                <button onclick="copyCommand()" id="copy-btn" class="absolute right-3 bg-[#1e293b] hover:bg-[#334155] text-[#cbd5e1] hover:text-white px-3 py-1.5 rounded-lg border border-[#334155] transition-all duration-200 text-xs font-medium flex items-center space-x-1.5 shadow-sm active:scale-95 cursor-pointer">
+                    <i id="copy-icon" class="fa-solid fa-copy"></i>
+                    <span id="copy-text">Copy</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer / Direct Link -->
+        <div class="mt-8 pt-4 border-t border-[#334155] flex justify-between items-center text-xs text-[#64748b]">
+            <span>Secured via GitHub Pages</span>
+            <a href="[PLACEHOLDER_FOR_RAW_URL]" download class="text-[#38bdf8] hover:underline flex items-center space-x-1.5 font-medium">
+                <i class="fa-solid fa-download"></i>
+                <span>Download raw file</span>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Interactive Copy Mechanism -->
+    <script>
+        function copyCommand() {
+            const command = document.getElementById('cmd-text').innerText;
+            const btn = document.getElementById('copy-btn');
+            const text = document.getElementById('copy-text');
+            const icon = document.getElementById('copy-icon');
+
+            navigator.clipboard.writeText(command).then(() => {
+                // Active configuration success styling
+                btn.classList.remove('bg-[#1e293b]', 'border-[#334155]', 'text-[#cbd5e1]');
+                btn.classList.add('bg-[#10b981]/20', 'border-[#10b981]/40', 'text-[#34d399]');
+                text.innerText = 'Copied!';
+                icon.className = 'fa-solid fa-check';
+
+                // Revert state logic loop
+                setTimeout(() => {
+                    btn.classList.remove('bg-[#10b981]/20', 'border-[#10b981]/40', 'text-[#34d399]');
+                    btn.classList.add('bg-[#1e293b]', 'border-[#334155]', 'text-[#cbd5e1]');
+                    text.innerText = 'Copy';
+                    icon.className = 'fa-solid fa-copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
