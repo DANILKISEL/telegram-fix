@@ -29,3 +29,4 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo resolvectl flush-caches >/dev/null 2>&1
   fi
 fi
+echo "Done!"
